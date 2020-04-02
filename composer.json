@@ -1,6 +1,6 @@
 {
     "name": "vendor/presta-a-p-i-testing",
-    "description": "Description of project PrestaAPITesting.",
+    "description": "Description of project presta-a-p-i-testing.",
     "authors": [
         {
             "name": "Carolans",
@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "lib-curl": "* 7.68.0",
         "prestashop/prestashop-webservice-lib": "dev-master"
     },
     "autoload": {

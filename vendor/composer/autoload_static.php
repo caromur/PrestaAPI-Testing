@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit627254a8a15f41ccdfd6a035d95fc51b
+class ComposerStaticInit4017c6fb5c023a86d0a6f836f1451ed3
 {
     public static $files = array (
         '9d0199ba51ea5554d22791b39f1a0709' => __DIR__ . '/..' . '/prestaShop/prestaShop-webservice-lib/PSWebServiceLibrary.php',
@@ -18,7 +18,7 @@ class ComposerStaticInit627254a8a15f41ccdfd6a035d95fc51b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit627254a8a15f41ccdfd6a035d95fc51b::$classMap;
+            $loader->classMap = ComposerStaticInit4017c6fb5c023a86d0a6f836f1451ed3::$classMap;
 
         }, null, ClassLoader::class);
     }

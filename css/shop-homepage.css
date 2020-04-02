@@ -1,0 +1,526 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+    padding-top: 56px;
+}
+
+.navbar-brand
+{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: #f7f9fb;
+}
+
+.navbar-brand:hover
+{
+    color: #687864;
+}
+
+.nav-link
+{
+    color: #f7f9fb;
+}
+
+.change-button{
+    width: 100px;
+    font-size: 12px;
+    margin: 5px auto;
+}
+
+.cart-link:hover
+{
+    text-decoration: none;
+}
+
+.nav-link:hover
+{
+    color: #687864;
+}
+
+.navbar
+{
+    background-color: #8fc1e3;
+    color: white;
+}
+
+.cartArea
+{
+    width: 100%;
+    padding-top: 1px;
+    height: 130px;
+    background-color: #5085A5;    font-size: 40px;
+}
+
+.single-item-img
+{
+    height: 100%;
+    width: 100%;
+}
+
+.myCard
+{
+    height: 400px;
+    width: 100%;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+
+.card{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+#cart{
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+    color:  #6699ff;
+}
+
+.titleH1{
+    margin: 20px auto;
+    text-align: center;
+}
+
+.cart-btn
+{
+    width: 80%;
+    background-color: #5085a5;
+    border-color: #5085a5;
+    color: white;
+}
+
+.checkout-button
+{
+    background-color: #5085a5;
+}
+
+.checkout-button:hover
+{
+    background-color: #687864;
+}
+
+.myCart
+{
+    color: white;
+    font-size: 30px;
+}
+
+.search-field{
+    margin: 20px auto;
+}
+
+#searchbox
+{
+    margin-left: 10px;
+}
+
+.category-navbar
+{
+    background-color: #70db70;
+}
+
+.my-badge
+{
+    font-size: 14px;
+}
+
+.navbar-toggler-icon
+{
+    color: white;
+}
+
+.cart-btn:hover
+{
+    background-color: #687864;
+    border-color: #687864;
+    color: white;
+}
+
+.add-cart-footer
+{
+    text-align: center;
+}
+
+.productTable
+{
+    width: 60%;
+    margin: 30px auto;
+}
+
+
+.choosePrice
+{
+    width: 80px;
+}
+
+.tableHeader
+{
+    text-align: center;
+}
+
+header.masthead {
+    text-align: center;
+    padding-top: 0px;
+    color: white;
+    background-image: url("../images/shop.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+    /*background-size: 60%;*/
+    width: 100%;
+}
+
+header.masthead .intro-text {
+    /*padding-top: 150px;*/
+    padding-bottom: 100px;
+    display: inline-block;
+}
+
+.banner
+{
+    margin: 30px auto;
+
+    width: 100%;
+}
+
+.img-fluid
+{
+    margin: 80px auto;
+}
+
+header.masthead .intro-text .intro-lead-in {
+    font-size: 22px;
+
+    /*line-height: 22px;*/
+    margin-bottom: 25px;
+    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+header.masthead .intro-text .intro-heading {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 0px;
+    margin-bottom: 25px;
+    font-family:'Hand', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+@media (min-width: 768px) {
+    header.masthead .intro-text {
+        padding-top: 300px;
+        padding-bottom: 200px;
+    }
+
+    header.masthead .intro-text .intro-lead-in {
+        display: inline-block;
+        font-size: 40px;
+        line-height: 40px;
+        padding: 15px;
+        margin: 0 auto;
+        overflow: hidden;
+        color: #f0eff4;
+        margin-bottom: 15px;
+        font-family: 'Type','Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        letter-spacing: .15em;
+        white-space: nowrap;
+        /*border-right: .15em solid #47b847;*/
+        /*        animation: typing 3.5s steps(40, end),
+                    blinking-cursor .5s step-end infinite;*/
+
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blinking-cursor {
+        from, to { border-color: transparent }
+        50% { border-color: #47b847 }
+    }
+
+    .js-loading *,
+    .js-loading *:before,
+    .js-loading *:after {
+        animation-play-state: paused !important;
+    }
+
+    /*let the dude handle it*/
+    header.masthead .intro-text .intro-heading {
+        font-size: 75px;
+        font-weight: 700;
+        line-height: 25px;
+        margin-bottom: 50px;
+
+
+    }
+}
+
+/*For the about section*/
+.reviews-area {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.aboutContainer
+{
+    /*background-size: cover;*/
+    background-color: #8fc1e3;
+    width: 100%;
+    text-align: center;
+}
+
+.aboutGrid2
+{
+    background: #687684 none repeat scroll 0 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'BioRhyme';
+    color: #fff;
+    padding: 71px 71px 71px;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+#adminLogoutButton
+{
+    padding: 30px;
+    color: orange;
+}
+
+#aboutImg
+{
+    margin: 10px auto;
+    height: 40%;
+    width: 40%;
+}
+
+.work-left-text {
+    background: #8fc1e3 none repeat scroll 0 0;
+    text-align: center;
+    /*background-size: cover;*/
+    /*overflow: hidden;*/
+}
+
+.work-left-text {
+    width: 50%;
+}
+
+.flex-container{
+    display: flex;
+}
+
+@media screen and (max-width: 768px)
+{
+    .card{
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    div.work-right-text {
+        padding: 71px 71px 71px;
+        padding-bottom: 71px;
+    }
+}
+
+.work-right-text {
+    background: #3a3e3b none repeat scroll 0 0;
+    height: 100%;
+    float: right;
+    overflow: hidden;
+    font-family: 'BioRhyme';
+    font-size: 1.3vw;
+    color: #fff;
+    padding: 50px 50px 50px;
+    padding-bottom: 71px;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.work-right-text h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.work-right-text h5 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 34px;
+    text-transform: uppercase;
+}
+
+.work-right-text .sus-btn {
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+
+
+/*stuff for account page*/
+.account-page {
+    width: 700px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.the-account-form {
+    width: 700px;
+    /*margin: 30px auto;*/
+    padding: 45px;
+    /*text-align: center;*/
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.account-form
+{
+    margin: 10px auto;
+}
+
+.the-account-form  input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.the-account-form  button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #5085a5;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.the-account-form  button:hover,.the-login-form button:active,.the-login-form button:focus {
+    background: #687864;
+}
+.the-account-form  .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.account-header
+{
+    margin: 10px auto;
+    color: #b3b3b3;
+}
+
+
+
+
+
+/*Stuff for login form*/
+.login-page {
+    width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.address-area{
+    width: 100%;
+}
+
+.register-table
+{
+    width: 100%;
+    margin: 10px auto;
+    /*border: 1px solid black;*/
+    text-align: center;
+}
+
+.cus-reg-field
+{
+    padding-bottom: 12px;
+}
+
+.the-login-form {
+    width: 500px;
+    /*margin: 30px auto;*/
+    padding: 45px;
+    /*text-align: center;*/
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.account-container
+{
+    margin-top: 50px;
+}
+
+.account-details-col
+{
+    text-align: center;
+}
+
+.login-form
+{
+    margin: 10px auto;
+}
+
+.the-login-form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.the-login-form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #5085a5;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.the-login-form button:hover,.the-login-form button:active,.the-login-form button:focus {
+    background: #687864;
+}
+.the-login-form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.login-header
+{
+    margin: 10px auto;
+    color: #b3b3b3;
+}
+

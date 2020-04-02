@@ -1,0 +1,19 @@
+{
+    "name": "vendor/presta-a-p-i-testing",
+    "description": "Description of project PrestaAPITesting.",
+    "authors": [
+        {
+            "name": "Carolans",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "lib-curl": "* 7.68.0",
+        "prestashop/prestashop-webservice-lib": "dev-master"
+    },
+    "autoload": {
+        "files": [
+            "vendor/prestaShop/prestaShop-webservice-lib/PSWebServiceLibrary.php"
+        ]
+    }
+}

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require 'functions/functions.php'; ?>
 
 <html lang="en">
 
@@ -61,23 +62,7 @@
             </form>
         </div>
         
-        <?php
-        
-    require_once 'vendor/autoload.php';
-    
-    $url = 'http://localhost/AdsPresta';
-    $key  = 'A363IBM5XWUBW4661U8VDQPGTEW825JD';
-    $debug = false;
-    
-    $webService = new PrestaShopWebservice($url, $key, $debug);
-    $xmlResponse = $webService->get(['resource' => 'addresses']);
-    foreach ($xmlResponse->addresses->address as $address) {
-        $addressId = (int) "6";//$address['5'];
-        $addressXmlResponse = $webService->get(['resource' => 'addresses', 'id' => $addressId]);
-        $address = $addressXmlResponse->address[0];
-        echo sprintf('ID: %s, alias: %s' . PHP_EOL, $address->id, $address->alias);
-    }
-        ?>
+        <?php readResource();?>
 
         <div class="login-page">
             <h4 class="login-header mb-4 mt-4">You must login or sign up to make a purchase</h4>
@@ -86,7 +71,7 @@
                     <table class="register-table">
                         <tr>
                             <td class="cus-reg-field">Full Name: </td>
-                            <td><input type="text" placeholder=<?php echo $address->firstname;?> name="cus_name" required/></td>
+                            <td><input type="text" placeholder="Name" name="cus_name" required/></td>
                         </tr>
                         <tr>
                             <td class="cus-reg-field">Email Address: </td>

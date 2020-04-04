@@ -2,12 +2,24 @@ var rootURL = "http://localhost/AdamsTestEcommerce/adminPanel/products";
 
 $(document).ready(function()
 {
-   findAll();
+   //findAll();
    document.getElementById('deleteButton').addEventListener("click", deleteGame);
    document.getElementById('updateButton').addEventListener("click", updateGame);
    document.getElementById('submitButton').addEventListener("click", addGame);
-
+   document.getElementById('testprintLabel').addEventListener("click", testAlert);
+   formToXml();
 });
+
+var testAlert = function()
+{
+    alert("Hello there");
+}
+
+var formToXml = function()
+{
+    var name = "<firstName>" + $("#firstname").val() + "</firstname>";
+    alert(name);
+};
 
 
 var findAll = function()
@@ -23,9 +35,9 @@ var findAll = function()
 
 var renderList = function(data)
 {
-    list = data.game;
+    list = data.address;
     console.log("response");
-    $.each(list, function(index, game)
+    $.each(list, function(index, address)
     {
         $('#table_body').append('<tr><td>' + game.id + '</td><td>' + game.name + '</td><td>' + game.developer + '</td><td>' + game.platform + '</td><td>' + game.rating + '</td><td>' + game.yearReleased + '</td><td>' + game.noOfPlayers + '</td><td>'  + game.genre + '</td><td><button type="button" class="editButton" id = ' +game.id+' data-toggle="modal" data-target="#myModal" onclick = "findById(this.id)">Edit</button></td></tr>');
     });

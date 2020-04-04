@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php require 'functions/functions.php'; ?>
+<?php 
+    require 'api/index.php'; 
+    require 'functions/functions.php';
+?>
 
 <html lang="en">
 
@@ -16,6 +19,10 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
         <link href="css/shop-homepage.css" rel="stylesheet">
+        
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/testXML.js"></script>
 
     </head>
 
@@ -62,42 +69,8 @@
             </form>
         </div>
         
-        <?php readResource();?>
-
-        <div class="login-page">
-            <h4 class="login-header mb-4 mt-4">You must login or sign up to make a purchase</h4>
-            <div class="the-login-form">
-                <form class="login-form" method="post" action="">
-                    <table class="register-table">
-                        <tr>
-                            <td class="cus-reg-field">Full Name: </td>
-                            <td><input type="text" placeholder="Name" name="cus_name" required/></td>
-                        </tr>
-                        <tr>
-                            <td class="cus-reg-field">Email Address: </td>
-                            <td><input type="text" placeholder="Email" name="cus_email" required/></td>
-                        </tr>
-                        <tr>
-                            <td class="cus-reg-field">Password</td>
-                            <td><input type="password" placeholder="Password" name="cus_pass" required/></td>
-                        </tr>
-                        <tr>
-                            <td class="cus-reg-field">Phone Number</td>
-                            <td><input type="text" placeholder="Number" name="cus_contact" required/></td>
-                        </tr>
-                        <tr>
-                            <td class="cus-reg-field">Full Address</td>
-                            <td><textarea placeholder="Address" class="address-area" name="cus_address" required></textarea></td>
-                        </tr>
-                    </table>
-                    <button type="submit" name="register">Register</button>
-                    <p class="message">Already have an account? <a href="checkout.php">Log in</a></p>
-                </form>
-            </div>
-        </div>
-
-
-
+        <?php readResource() ?>
+        <?php generateXML()?>
         <!-- Page Content -->
 
         <!-- /.container -->
@@ -111,9 +84,7 @@
         </footer>
 
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+        
     </body>
 
 </html>

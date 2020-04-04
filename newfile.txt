@@ -1,0 +1,7 @@
+<firstname>supplier</firstname>
+<lastname>supplier</lastname>
+<address1>767 Fifth Ave.</address1>
+<address2></address2>
+<city>New York</city>
+<postcode>10153</postcode>
+<phone>(212) 336-1440</phone>

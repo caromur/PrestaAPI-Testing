@@ -54,8 +54,6 @@ function readResource()
                             <td><input type="text" placeholder="Number" name="cus_contact" id="phone" value='.$address->phone.' required/></td>
                         </tr>
                     </table>
-                    <a href="index.php?generateXML='.$addressId.'"><button  name="register" id="printLabel">Print Label</button></a>
-                    <p class="message">Already have an account? <a href="checkout.php">Log in</a></p>
                 </form>
                 <a href="index.php?generateXML='.$addressId.'"><button name="register" id="testprintLabel">Print Label</button></a>
             </div>

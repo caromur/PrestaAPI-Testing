@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreAdvice>
+  <Consignment>
+    <RecordID>1</RecordID>
+    <CustomerAccount>101L10</CustomerAccount>
+    <ConsignmentCreationDateTime>2020-04-05T19:29:46</ConsignmentCreationDateTime>
+    <GazzType>PreAdvice</GazzType>
+    <TrackingNumber>0</TrackingNumber>
+    <TotalParcels>1</TotalParcels>
+    <Relabel>0</Relabel>
+    <ServiceOption>5</ServiceOption>
+    <ServiceType>1</ServiceType>
+    <DeliveryAddress>
+      <Contact>Adam Carolan</Contact>
+      <ContactTelephone>0871816531</ContactTelephone>
+      <ContactEmail>adamcarolan96@gmail.com</ContactEmail>
+      <BusinessName>AdsPresta</BusinessName>
+      <AddressLine1>Rathcobican</AddressLine1>
+      <AddressLine2>Rhode</AddressLine2>
+      <AddressLine3>Offaly</AddressLine3>
+      <AddressLine4/>
+      <PostCode>R35K308</PostCode>
+      <CountryCode>IE</CountryCode>
+    </DeliveryAddress>
+    <CollectionAddress>
+      <Contact>DPD Ireland</Contact>
+      <ContactTelephone>12345</ContactTelephone>
+      <ContactEmail>adamcarolan96@gmail.com</ContactEmail>
+      <BusinessName>DPD</BusinessName>
+      <AddressLine1>Athlone Business Park,</AddressLine1>
+      <AddressLine2>Dublin Rd</AddressLine2>
+      <AddressLine3>Westmeath</AddressLine3>
+      <AddressLine4/>
+      <PostCode/>
+      <CountryCode>IE</CountryCode>
+    </CollectionAddress>
+    <PackingList/>
+    <ParcelDetails/>
+    <References/>
+    <Notes/>
+  </Consignment>
+</PreAdvice>

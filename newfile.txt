@@ -1,3 +1,4 @@
+<deliveryAddress>
 <firstname>Adam</firstname>
 <lastname>Carolan</lastname>
 <address1>Rathcobican</address1>
@@ -5,3 +6,12 @@
 <city>Offaly</city>
 <postcode>R35K308</postcode>
 <phone></phone>
+</deliveryAddress>
+<collectionAddress>
+<collName>DPD Ireland</collName>
+<collAddress1>Athlone Business Park,</collAddress1>
+<collAddress2>Dublin Rd</collAddress2>
+<collCity></collCity>
+<collPostcode></collPostcode>
+<collEmail>adamcarolan96@gmail.com</collEmail>
+</collectionAddress>

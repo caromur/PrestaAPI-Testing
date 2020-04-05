@@ -55,7 +55,7 @@ function readResource()
                         </tr>
                     </table>
                 </form>
-                <a href="index.php?generateXML='.$addressId.'"><button name="register" id="testprintLabel">Print Label</button></a>
+                <a href="index.php?generateXML='.$addressId.'"><button name="register" id="testprintLabel">Generate XML</button></a>
             </div>
         </div>';
 
@@ -77,6 +77,7 @@ function generateXML()
 function readSingleAddress($id)
 {
     global $webService;
+    // Delivery Address
     $xmlResponse = $webService->get(['resource' => 'addresses/', 'id' => $id]);
     $addressXML = $xmlResponse->address[0];
     $firstName = $addressXML->firstname;
@@ -87,18 +88,171 @@ function readSingleAddress($id)
     $postcode = $addressXML->postcode;
     $phone = $addressXML->phone;
     
-    $xmlRequest = "<firstname>".$firstName."</firstname>\n".
+    //Collection Address
+    $xmlResponse = $webService->get(['resource' => 'stores/', 'id' => 1]);
+    $addressXML = $xmlResponse->store[0];
+    $collName = $addressXML->name->language;
+    $collAddress1 = $addressXML->address1->language;
+    $collAddress2 = $addressXML->address2->language;
+    $collCity = $addressXML->city;
+    $collPostcode = $addressXML->postcode;
+    $email = $addressXML->email;
+    
+    $dom = new DOMDocument();
+    $dom->encoding = 'utf-8';
+    $dom->xmlVersion = '1.0';
+    $dom->formatOutput = true;
+    $xml_file_name = 'newfile.xml';
+    $root = $dom->createElement('PreAdvice');
+    $con_node = $dom->createElement('Consignment');
+    $record_id_node = $dom->createElement('RecordID', '1');
+    $con_node->appendChild($record_id_node);
+    
+    $customer_id_node = $dom->createElement('CustomerAccount', '101L10');
+    $con_node->appendChild($customer_id_node);
+    
+    $currentDateTime = date('Y-m-d\TH:i:s');
+    $con_creation_date_node = $dom->createElement('ConsignmentCreationDateTime', $currentDateTime);
+    $con_node->appendChild($con_creation_date_node);
+    
+    $gazz_type_node = $dom->createElement('GazzType', 'PreAdvice');
+    $con_node->appendChild($gazz_type_node);
+    
+    $tracking_number_node = $dom->createElement('TrackingNumber', '0');
+    $con_node->appendChild($tracking_number_node);
+    
+    $total_parcel_node = $dom->createElement('TotalParcels', '1');
+    $con_node->appendChild($total_parcel_node);
+    
+    $relabel_node = $dom->createElement('Relabel', '0');
+    $con_node->appendChild($relabel_node);
+    
+    $service_option_node = $dom->createElement('ServiceOption', '5');
+    $con_node->appendChild($service_option_node);
+    
+    $service_type_node= $dom->createElement('ServiceType', '1');
+    $con_node->appendChild($service_type_node);
+    
+    // Delivery Address
+    $delivery_node = $dom->createElement('DeliveryAddress');
+    $con_node->appendChild($delivery_node);
+    $del_contact_node = $dom->createElement('Contact', $firstName . " " . $lastName);
+    $delivery_node->appendChild($del_contact_node);
+    
+    $del_telephone_node = $dom->createElement('ContactTelephone', "0871816531");
+    $delivery_node->appendChild($del_telephone_node);
+    
+    $del_email_node = $dom->createElement('ContactEmail', "adamcarolan96@gmail.com");
+    $delivery_node->appendChild($del_email_node);
+    
+    $del_business_name_node = $dom->createElement('BusinessName', "AdsPresta");
+    $delivery_node->appendChild($del_business_name_node);
+    
+    $del_address1_node = $dom->createElement('AddressLine1', $address1);
+    $delivery_node->appendChild($del_address1_node);
+    
+    $del_address2_node = $dom->createElement('AddressLine2', $address2);
+    $delivery_node->appendChild($del_address2_node);
+    
+    $del_address3_node = $dom->createElement('AddressLine3', $city);
+    $delivery_node->appendChild($del_address3_node);
+    
+    $del_address4_node = $dom->createElement('AddressLine4');
+    $delivery_node->appendChild($del_address4_node);
+    
+    $del_postcode_node = $dom->createElement('PostCode', $postcode);
+    $delivery_node->appendChild($del_postcode_node);
+    
+    $del_countrycode_node = $dom->createElement('CountryCode', "IE");
+    $delivery_node->appendChild($del_countrycode_node);
+    //Exit Delivery Node
+    
+    // Collection Address
+    $collection_node = $dom->createElement('CollectionAddress');
+    $con_node->appendChild($collection_node);
+    $col_contact_node = $dom->createElement('Contact', $collName);
+    $collection_node->appendChild($col_contact_node);
+    
+    $col_telephone_node = $dom->createElement('ContactTelephone', "12345");
+    $collection_node->appendChild($col_telephone_node);
+    
+    $col_email_node = $dom->createElement('ContactEmail', "adamcarolan96@gmail.com");
+    $collection_node->appendChild($col_email_node);
+    
+    $col_business_name_node = $dom->createElement('BusinessName', "DPD");
+    $collection_node->appendChild($col_business_name_node);
+    
+    $col_address1_node = $dom->createElement('AddressLine1', $collAddress1);
+    $collection_node->appendChild($col_address1_node);
+    
+    $col_address2_node = $dom->createElement('AddressLine2', $collAddress2);
+    $collection_node->appendChild($col_address2_node);
+    
+    $col_address3_node = $dom->createElement('AddressLine3', $collCity);
+    $collection_node->appendChild($col_address3_node);
+    
+    $col_address4_node = $dom->createElement('AddressLine4');
+    $collection_node->appendChild($col_address4_node);
+    
+    $col_postcode_node = $dom->createElement('PostCode', $collPostcode);
+    $collection_node->appendChild($col_postcode_node);
+    
+    $col_countrycode_node = $dom->createElement('CountryCode', "IE");
+    $collection_node->appendChild($col_countrycode_node);
+    //Exit Collection Node
+    
+    $packinglist_node = $dom->createElement('PackingList');
+    $con_node->appendChild($packinglist_node);
+    
+    $parcel_details_node = $dom->createElement('ParcelDetails');
+    $con_node->appendChild($parcel_details_node);
+    
+    $references_node = $dom->createElement('References');
+    $con_node->appendChild($references_node);
+    
+    $notes_node = $dom->createElement('Notes');
+    $con_node->appendChild($notes_node);
+    
+
+    $root->appendChild($con_node);
+    $dom->appendChild($root);
+    $dom->save($xml_file_name);
+    echo '<script>alert("NewXMLFile saved");</script>';
+    
+    /*$dom = new DOMDocument();
+    $dom->encoding = 'utf-8';
+    $dom->xmlVersion = '1.0';
+    $dom->formatOutput = true;
+    $xml_file_name = 'newfile.xml';
+    $root = $dom->createElement('Preadvice');
+    $con_node = $dom->createElement('Consignment');
+    $record_id_node = $dom->createElement('RecordID');
+    $record_id = new DOMAttr('$record_id_node', '101L10');
+    $record_id_node->setAttributeNode($record_id);
+    $dom->save($xml_file_name);
+    
+    $xmlRequest = "<deliveryAddress>\n"
+            . "<firstname>".$firstName."</firstname>\n".
             "<lastname>".$lastName."</lastname>\n".
             "<address1>".$address1."</address1>\n".
             "<address2>".$address2."</address2>\n".
             "<city>".$city."</city>\n".
             "<postcode>".$postcode."</postcode>\n".
-            "<phone>".$phone."</phone>\n";
+            "<phone>".$phone."</phone>\n".
+            "</deliveryAddress>\n".
+            "<collectionAddress>\n".
+            "<collName>".$collName."</collName>\n".
+            "<collAddress1>".$collAddress1."</collAddress1>\n".
+            "<collAddress2>".$collAddress2."</collAddress2>\n".
+            "<collCity>".$collCity."</collCity>\n".
+            "<collPostcode>".$collPostcode."</collPostcode>\n".
+            "<collEmail>".$email."</collEmail>\n".
+            "</collectionAddress>\n";
     
     echo '<script>alert("NewTextFile saved");</script>';
     $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
     fwrite($myfile, $xmlRequest);
-    fclose($myfile);
+    fclose($myfile);*/
 }
 
 ?>

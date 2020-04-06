@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <?php 
-    require 'api/index.php'; 
-    require 'functions/functions.php';
+
+session_start();
+
+if(!isset($_SESSION['admin_login']))
+{
+    echo '<script>window.open("adminLogin.php", "_self");</script>';
+}
+else
+{
+ require 'api/index.php'; 
+    require 'functions/functions.php';   
+}
 ?>
 
 <html lang="en">
@@ -46,6 +56,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="functions/adminLogout.php">Log Out</a>
                         </li>
                         <li>
                             <a href="myCart.php" class="cart-link"><i class="fas fa-shopping-cart myCart nav-link"></i>

@@ -219,40 +219,52 @@ function readSingleAddress($id)
     $dom->save($xml_file_name);
     echo '<script>alert("NewXMLFile saved");</script>';
     
-    /*$dom = new DOMDocument();
-    $dom->encoding = 'utf-8';
-    $dom->xmlVersion = '1.0';
-    $dom->formatOutput = true;
-    $xml_file_name = 'newfile.xml';
-    $root = $dom->createElement('Preadvice');
-    $con_node = $dom->createElement('Consignment');
-    $record_id_node = $dom->createElement('RecordID');
-    $record_id = new DOMAttr('$record_id_node', '101L10');
-    $record_id_node->setAttributeNode($record_id);
-    $dom->save($xml_file_name);
+    samplePostRequest($xml_file_name);
+
+}
+
+function samplePostRequest($xml)
+{
     
-    $xmlRequest = "<deliveryAddress>\n"
-            . "<firstname>".$firstName."</firstname>\n".
-            "<lastname>".$lastName."</lastname>\n".
-            "<address1>".$address1."</address1>\n".
-            "<address2>".$address2."</address2>\n".
-            "<city>".$city."</city>\n".
-            "<postcode>".$postcode."</postcode>\n".
-            "<phone>".$phone."</phone>\n".
-            "</deliveryAddress>\n".
-            "<collectionAddress>\n".
-            "<collName>".$collName."</collName>\n".
-            "<collAddress1>".$collAddress1."</collAddress1>\n".
-            "<collAddress2>".$collAddress2."</collAddress2>\n".
-            "<collCity>".$collCity."</collCity>\n".
-            "<collPostcode>".$collPostcode."</collPostcode>\n".
-            "<collEmail>".$email."</collEmail>\n".
-            "</collectionAddress>\n";
-    
-    echo '<script>alert("NewTextFile saved");</script>';
-    $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-    fwrite($myfile, $xmlRequest);
-    fclose($myfile);*/
+    $xmlFile = file_get_contents("newfile.xml");
+     
+//The URL that you want to send your XML to.
+$url = 'https://pre-prod-papi.dpd.ie/common/api/preadvice';
+ 
+//Initiate cURL
+$curl = curl_init($url);
+
+// My Custom Headers
+$customHeaders = array("Content-Type: application/xml",
+                       "Accept: application/xml",
+                       "Authorization: Bearer 633e384e-3b39-4238-b154-3c56925506fb");
+ 
+//Set the Content-Type to text/xml.
+curl_setopt ($curl, CURLOPT_HTTPHEADER, $customHeaders);
+ 
+//Set CURLOPT_POST to true to send a POST request.
+//curl_setopt($curl, CURLOPT_POST, true);
+ 
+//Attach the XML string to the body of our request.
+curl_setopt($curl, CURLOPT_POSTFIELDS, $xmlFile);
+ 
+//Tell cURL that we want the response to be returned as
+//a string instead of being dumped to the output.
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+ 
+//Execute the POST request and send our XML.
+$result = curl_exec($curl);
+ 
+//Do some basic error checking.
+if(curl_errno($curl)){
+    throw new Exception(curl_error($curl));
+}
+ 
+//Close the cURL handle.
+curl_close($curl);
+ 
+//Print out the response output.
+echo $result;
 }
 
 ?>
